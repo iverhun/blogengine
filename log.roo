@@ -1,0 +1,41 @@
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-10 17:37:31
+project --topLevelPackage ua.com.blogengine --projectName blogengine --java 6 --packaging WAR
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-10-10 17:37:39
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-10 17:37:43
+hint
+jpa setup --database MYSQL --provider HIBERNATE --databaseName bestblog --password blog_app --userName blog_app 
+jpa setup --database MYSQL --provider HIBERNATE --databaseName bestblog --password blog_app --userName blog_app 
+hint
+entity jpa --class ua.com.blogengine.domain.Article
+// [failed] entity jpa --class ua.com.blogengine.domain.User
+entity jpa --class ua.com.blogengine.domain.BlogUser
+// [failed] entity jpa --class ua.com.blogengine.domain.Section
+entity jpa --class ua.com.blogengine.domain.BlogSection
+field string --fieldName test --notNull 
+test integration 
+// [failed] test integration --entity 
+test integration --entity ~.domain.Article
+test integration --entity ~.domain.BlogSection
+test integration --entity ~.domain.BlogSection
+perform tests 
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-10 18:16:46
+perform tests
+perform tests
+test integration --entity ~.domain.Article
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-10-10 18:48:48
+perform tests
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-10 19:04:09
+perform tests
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-10 19:23:55
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-10-10 19:25:26
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-10 22:01:50
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-10 22:02:22
+test integration --entity ~.domain.BlogUser
+perform tests
+entity jpa --class ~.domain.User --permitReservedWords true
+// [failed] test integration --entity ~.domain.User
+test integration --entity ~.domain.User --permitReservedWords 
+perform tests
+test integration --entity ~.domain.Section --permitReservedWords 
+perform tests
+perform tests
