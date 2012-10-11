@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_ua_com_blogengine_domain_Article" modelAttribute="article" path="/articles" versionField="Version" z="tmYvf3XUVHOInwVrfi4azfc4Yyg=">
+        <field:input field="title" id="c_ua_com_blogengine_domain_Article_title" required="true" z="32b3q9WQpuSKMtcRyAtcCy+PGnY="/>
+        <field:input field="urlTitle" id="c_ua_com_blogengine_domain_Article_urlTitle" z="uv1LI5K7aUZuSO9barF399gDQsg="/>
+        <field:input field="content" id="c_ua_com_blogengine_domain_Article_content" required="true" z="jXgsSHgRmbrZChAxTsVujVimqbc="/>
+        <field:input field="htmlPreamble" id="c_ua_com_blogengine_domain_Article_htmlPreamble" z="GLcjyao3pu3PgEpQx3QFZmgFD2E="/>
+        <field:input field="htmlContent" id="c_ua_com_blogengine_domain_Article_htmlContent" z="GB6qk9jUWhw2NgVNd6DxchH0u/c="/>
+        <field:datetime dateTimePattern="${article_submissiondate_date_format}" field="submissionDate" id="c_ua_com_blogengine_domain_Article_submissionDate" z="ul+HGIp9BAP1qPOV3/3WfgGSNz8="/>
+        <field:datetime dateTimePattern="${article_publicationdate_date_format}" field="publicationDate" id="c_ua_com_blogengine_domain_Article_publicationDate" z="6GxtuLL6ClPcWQbUctagAeywFRc="/>
+        <field:checkbox field="published" id="c_ua_com_blogengine_domain_Article_published" z="fNKIqRQmkTVXae4hWv5zyKU28LY="/>
+        <field:select field="section" id="c_ua_com_blogengine_domain_Article_section" itemValue="id" items="${sections}" path="/sections" z="Aa3yKVY51EHcq6n9XBUluqVsy+c="/>
+    </form:update>
+</div>

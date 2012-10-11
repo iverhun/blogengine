@@ -1,0 +1,33 @@
+@(articleForm: Form[Article], sections: List[Section])
+
+@import helper._
+@implicitField = @{ FieldConstructor(myFieldConstructorTemplate.f) }
+
+@main("Edit Article") {
+<div id="articleForm">
+    @* the input components are located in views.html.helper package *@
+
+    @helper.form(action = routes.EditArticle.save()) {
+
+@*
+		@helper.select(articleForm("section"), sections.map {section => section.getId.toString -> section.getName})
+        <br/>
+        <br/>
+*@
+        @helper.inputText(articleForm("title"), 'size -> 50, 'class -> "text queryField")
+        <br/>
+        <br/>
+        @helper.textarea(articleForm("content"), 'rows -> 20, 'cols -> 80)
+
+        @*
+            @helper.input(articleForm("id"), 'opt -> "xx") { (id, name, value, args) =>
+                <input type="hidden" name="@name" id="@id" value="@value" @toHtmlArgs(args) />
+            }
+        *@
+        <input type="hidden" name='@articleForm("id").name' id='@articleForm("id").name' value='@articleForm("id").value'/>
+
+        <input type="submit" class="button queryButton" value="Submit"/>&nbsp;
+        <a href="@controllers.routes.Application.index()">Cancel</a>
+    }
+</div>
+}

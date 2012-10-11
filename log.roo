@@ -39,3 +39,13 @@ perform tests
 test integration --entity ~.domain.Section --permitReservedWords 
 perform tests
 perform tests
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-10 22:36:52
+web mvc setup
+web mvc scaffold --class ~.web.ArticleController --backingType ~.domain.Article --disallowedOperations delete
+web mvc scaffold --class ~.web.ArticleController --backingType ~.domain.Article --disallowedOperations delete
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-10 22:44:27
+web mvc controller --class ~.web.EditArticleController --preferredMapping /admin/edit
+perform tests
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-10 23:14:30
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-10-11 02:07:31
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-11 16:30:56

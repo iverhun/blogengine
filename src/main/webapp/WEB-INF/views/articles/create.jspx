@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_ua_com_blogengine_domain_Article" modelAttribute="article" path="/articles" render="${empty dependencies}" z="lkauM7kdzj/o5/jwQnjQaQ2Qgc4=">
+        <field:input field="title" id="c_ua_com_blogengine_domain_Article_title" required="true" z="32b3q9WQpuSKMtcRyAtcCy+PGnY="/>
+        <field:input field="urlTitle" id="c_ua_com_blogengine_domain_Article_urlTitle" z="uv1LI5K7aUZuSO9barF399gDQsg="/>
+        <field:input field="content" id="c_ua_com_blogengine_domain_Article_content" required="true" z="jXgsSHgRmbrZChAxTsVujVimqbc="/>
+        <field:input field="htmlPreamble" id="c_ua_com_blogengine_domain_Article_htmlPreamble" render="false" z="user-managed"/>
+        <field:input field="htmlContent" id="c_ua_com_blogengine_domain_Article_htmlContent" render="false" z="user-managed"/>
+        <field:datetime dateTimePattern="${article_submissiondate_date_format}" field="submissionDate" id="c_ua_com_blogengine_domain_Article_submissionDate" z="ul+HGIp9BAP1qPOV3/3WfgGSNz8="/>
+        <field:datetime dateTimePattern="${article_publicationdate_date_format}" field="publicationDate" id="c_ua_com_blogengine_domain_Article_publicationDate" z="6GxtuLL6ClPcWQbUctagAeywFRc="/>
+        <field:checkbox field="published" id="c_ua_com_blogengine_domain_Article_published" z="fNKIqRQmkTVXae4hWv5zyKU28LY="/>
+        <field:select field="section" id="c_ua_com_blogengine_domain_Article_section" itemValue="id" items="${sections}" path="/sections" z="Aa3yKVY51EHcq6n9XBUluqVsy+c="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_ua_com_blogengine_domain_Article" render="${not empty dependencies}" z="/wqesgW1t2tLNdS02WYn3cvHHl8="/>
+</div>

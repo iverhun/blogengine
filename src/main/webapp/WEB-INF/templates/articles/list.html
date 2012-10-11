@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>SamВидав</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="../../css/stsm.css" th:href="@{/css/stsm.css}" />
+</head>
+
+<body>
+
+	<div>
+		<img src="../../images/stsmlogo.png" alt="STSM logo" title="STSM logo"
+			th:src="@{/images/stsmlogo.png}" th:alt-title="#{title.application}" />
+	</div>
+
+	<div class="seedstarterlist" th:unless="${#lists.isEmpty(allArticles)}">
+		<div th:each="article : ${allArticles}">
+			<div id="articleWrapper">
+				<p>
+					<span style="font-size: 160%;">	
+						<a th:text="${article.title}" href="view_article" th:href="@{'/' + ${article.section.urlName} + '/' +  ${article.id}} + '/' + ${article.urlTitle}">
+							Article Title
+						</a>&nbsp;
+					<!-- 
+					    @if(session().containsKey("user")) { <span style="font-size: 70%;"><a
+							href="@controllers.routes.EditArticle.edit(article.getId())">(edit)</a></span>
+						} -->
+					</span>
+				</p>
+				<p>
+					<div th:utext="${article.htmlPreamble}"/>&nbsp;<a 
+						th:text="#{link.readmore}"
+						href="view_article" th:href="@{'/' + ${article.section.urlName} + '/' +  ${article.id}} + '/' + ${article.urlTitle}">
+						read more
+					</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

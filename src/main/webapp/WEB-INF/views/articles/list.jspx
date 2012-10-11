@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_ua_com_blogengine_domain_Article" items="${articles}" z="nUbbjNjYjHeJ1QsXlemnl7TuVJQ=">
+        <table:table data="${articles}" delete="false" id="l_ua_com_blogengine_domain_Article" path="/articles" z="ao4bCjuhEu9bxqucc/vEVakKQvg=">
+            <table:column id="c_ua_com_blogengine_domain_Article_title" property="title" z="PNE85EAfOrpd+tj7NeNHeZPYJmc="/>
+            <table:column id="c_ua_com_blogengine_domain_Article_urlTitle" property="urlTitle" z="FrNoUfCwB5fldv0SpfVGWodXUe0="/>
+            <table:column id="c_ua_com_blogengine_domain_Article_content" property="content" z="CRfzSRp1TIB54BSxNOKykE9m3qc="/>
+            <table:column id="c_ua_com_blogengine_domain_Article_htmlPreamble" property="htmlPreamble" z="6AwnGmgbCZqM7DTcXL/TvgS+1kI="/>
+            <table:column id="c_ua_com_blogengine_domain_Article_htmlContent" property="htmlContent" z="jn3HlRD6jti4fsPgf4vZxYZjR1k="/>
+            <table:column date="true" dateTimePattern="${article_submissiondate_date_format}" id="c_ua_com_blogengine_domain_Article_submissionDate" property="submissionDate" z="gQBQcS8SWwIq/nA3thxVy+/mx6k="/>
+        </table:table> 
+    </page:list>
+</div>

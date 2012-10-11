@@ -13,10 +13,11 @@ import java.util.List;
 import java.util.Random;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ua.com.blogengine.domain.Article;
 import ua.com.blogengine.domain.ArticleDataOnDemand;
-import ua.com.blogengine.domain.Section;
+import ua.com.blogengine.domain.SectionDataOnDemand;
 
 privileged aspect ArticleDataOnDemand_Roo_DataOnDemand {
     
@@ -26,6 +27,9 @@ privileged aspect ArticleDataOnDemand_Roo_DataOnDemand {
     
     private List<Article> ArticleDataOnDemand.data;
     
+    @Autowired
+    private SectionDataOnDemand ArticleDataOnDemand.sectionDataOnDemand;
+    
     public Article ArticleDataOnDemand.getNewTransientArticle(int index) {
         Article obj = new Article();
         setContent(obj, index);
@@ -33,7 +37,6 @@ privileged aspect ArticleDataOnDemand_Roo_DataOnDemand {
         setHtmlPreamble(obj, index);
         setPublicationDate(obj, index);
         setPublished(obj, index);
-        setSection(obj, index);
         setSubmissionDate(obj, index);
         setTitle(obj, index);
         setUrlTitle(obj, index);
@@ -63,11 +66,6 @@ privileged aspect ArticleDataOnDemand_Roo_DataOnDemand {
     public void ArticleDataOnDemand.setPublished(Article obj, int index) {
         Boolean published = true;
         obj.setPublished(published);
-    }
-    
-    public void ArticleDataOnDemand.setSection(Article obj, int index) {
-        Section section = null;
-        obj.setSection(section);
     }
     
     public void ArticleDataOnDemand.setSubmissionDate(Article obj, int index) {
