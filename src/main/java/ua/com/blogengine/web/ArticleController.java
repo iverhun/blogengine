@@ -23,7 +23,7 @@ public class ArticleController {
         return Article.findAllArticles();
     }
 
-    @RequestMapping(produces = "text/html", method = RequestMethod.GET)
+    @RequestMapping(/*produces = "text/html", */method = RequestMethod.GET)
     public String list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size,
             Model model) {
         if (page != null || size != null) {
@@ -40,7 +40,7 @@ public class ArticleController {
         return "articles/list";
     }
 
-    @RequestMapping(value = "/{section}/{id}/{title}", produces = "text/html", method = RequestMethod.GET)
+    @RequestMapping(value = "/{section}/{id}/{title}", /*produces = "text/html", */ method = RequestMethod.GET)
     public String show(@PathVariable String section,
             @PathVariable("id") Long id, 
             @PathVariable String title,

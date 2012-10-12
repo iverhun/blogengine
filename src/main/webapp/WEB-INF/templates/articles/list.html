@@ -24,6 +24,12 @@
 						<a th:text="${article.title}" href="view_article" th:href="@{'/' + ${article.section.urlName} + '/' +  ${article.id}} + '/' + ${article.urlTitle}">
 							Article Title
 						</a>&nbsp;
+					    <div sec:authorize="hasRole('ROLE_ADMIN')">
+					        This content is only shown to administrators.
+					    </div>
+					    <div sec:authorize="hasRole('ROLE_USER')">
+					        This content is only shown to users.
+					    </div> 
 					<!-- 
 					    @if(session().containsKey("user")) { <span style="font-size: 70%;"><a
 							href="@controllers.routes.EditArticle.edit(article.getId())">(edit)</a></span>
