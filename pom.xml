@@ -106,7 +106,19 @@
         </dependency>
         <!-- <dependency> <groupId>org.antlr</groupId> <artifactId>antlr-complete</artifactId> 
             <version>3.4</version> </dependency> <dependency> <groupId>org.antlr</groupId> 
-            <artifactId>stringtemplate</artifactId> <version>4.0.6</version> </dependency> -->
+                <artifactId>stringtemplate</artifactId> <version>4.0.6</version> </dependency> -->
+    
+        <dependency>
+            <groupId>org.mylyn.wikitext</groupId>
+            <artifactId>wikitext-core</artifactId>
+            <version>1.8.0</version>
+        </dependency>
+    
+        <dependency>
+            <groupId>org.mylyn.wikitext</groupId>
+            <artifactId>wikitext-mediawiki-core</artifactId>
+            <version>1.8.0</version>
+        </dependency>
 
         <!-- ==================================== -->
         <!-- thymeleaf dependencies -->

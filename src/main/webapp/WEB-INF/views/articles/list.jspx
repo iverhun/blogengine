@@ -10,6 +10,6 @@
             <table:column id="c_ua_com_blogengine_domain_Article_htmlPreamble" property="htmlPreamble" z="6AwnGmgbCZqM7DTcXL/TvgS+1kI="/>
             <table:column id="c_ua_com_blogengine_domain_Article_htmlContent" property="htmlContent" z="jn3HlRD6jti4fsPgf4vZxYZjR1k="/>
             <table:column date="true" dateTimePattern="${article_submissiondate_date_format}" id="c_ua_com_blogengine_domain_Article_submissionDate" property="submissionDate" z="gQBQcS8SWwIq/nA3thxVy+/mx6k="/>
-        </table:table> 
+        </table:table>
     </page:list>
 </div>

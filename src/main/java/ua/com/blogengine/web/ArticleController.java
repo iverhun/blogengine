@@ -2,28 +2,40 @@ package ua.com.blogengine.web;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import ua.com.blogengine.domain.Article;
+import ua.com.blogengine.domain.Section;
 
 @RequestMapping("/")
 @Controller
 @RooWebScaffold(path = "articles", formBackingObject = Article.class, delete = false)
+@SessionAttributes({"article"})
 public class ArticleController {
 
     @ModelAttribute("allArticles")
-    public List<Article> populateSeedStarters() {
+    public List<Article> populateArticles() {
         return Article.findAllArticles();
     }
 
-    @RequestMapping(/*produces = "text/html", */method = RequestMethod.GET)
+    @ModelAttribute("allSections")
+    public List<Section> populateSections() {
+        return Section.findAllSections();
+    }
+
+    @RequestMapping(produces = "text/html", method = RequestMethod.GET)
     public String list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size,
             Model model) {
         if (page != null || size != null) {
@@ -40,15 +52,46 @@ public class ArticleController {
         return "articles/list";
     }
 
-    @RequestMapping(value = "/{section}/{id}/{title}", /*produces = "text/html", */ method = RequestMethod.GET)
+    @RequestMapping(value = "/{section}/{id}/{title}", produces = "text/html",  method = RequestMethod.GET)
     public String show(@PathVariable String section,
             @PathVariable("id") Long id, 
-            @PathVariable String title,
+            @PathVariable String title, Model model) {
+        addDateTimeFormatPatterns(model);
+        
+        Article article = Article.findArticle(id);
+        if (!article.getUrlTitle().equals(title + Article.PAGE_TITLE_SUFFIX) || !article.getSection().getUrlName().equals(section)) {
+            model.asMap().clear();
+            return "redirect:" + getViewArticleUrl(article);
+        } else {
+            model.addAttribute("article", Article.findArticle(id));
+            return "articles/view";
+        }
+    }
+
+    @RequestMapping(value = "/{id}", produces = "text/html",  method = RequestMethod.GET)
+    public String show(@PathVariable("id") Long id, 
+            Model model) {
+        Article article = Article.findArticle(id);
+        return "redirect:" + getViewArticleUrl(article);
+    }
+
+    @RequestMapping(value = "/admin/edit", produces = "text/html", method = RequestMethod.GET)
+    public String edit(@RequestParam(value="articleId") Long id, 
             Model model) {
         addDateTimeFormatPatterns(model);
         model.addAttribute("article", Article.findArticle(id));
-        model.addAttribute("itemId", id);
-        return "articles/view";
+        return "articles/edit";
     }
 
+    @RequestMapping(value = "/admin/save", method = RequestMethod.POST)
+    public String save(@ModelAttribute("article") Article article,
+            BindingResult bindingResult,
+            Model model) {
+        Article savedArticle = article.saveOrUpdate();
+        return "redirect:" + getViewArticleUrl(savedArticle);
+    }
+
+    private String getViewArticleUrl(Article article) {
+        return "/" + article.getSection().getUrlName() + "/" + article.getId() + "/" + article.getUrlTitle();
+    }
 }

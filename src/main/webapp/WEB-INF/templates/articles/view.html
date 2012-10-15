@@ -21,9 +21,10 @@
         <p>
             <span style="font-size: 160%;">
                 <span th:text="${article.title}"></span>&nbsp;
-<!--                 @if(session().containsKey("user")) {
-                    < span style="font-size: 70%;">< a href="@controllers.routes.EditArticle.edit(article.getId())">(edit)</a></span>
-                } -->
+                
+                <span sec:authorize="hasRole('ROLE_ADMIN')" style="font-size: 70%;">
+                    <a href="/edit.html?articleId=1" th:href="@{/admin/edit(articleId=${article.id})}" th:text="#{link.edit}">(edit)</a>
+                </span>
             </span>
         </p>
         <p>

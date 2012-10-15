@@ -13,10 +13,6 @@ privileged aspect Article_Roo_JavaBean {
         return this.title;
     }
     
-    public void Article.setTitle(String title) {
-        this.title = title;
-    }
-    
     public String Article.getUrlTitle() {
         return this.urlTitle;
     }
@@ -27,10 +23,6 @@ privileged aspect Article_Roo_JavaBean {
     
     public String Article.getContent() {
         return this.content;
-    }
-    
-    public void Article.setContent(String content) {
-        this.content = content;
     }
     
     public String Article.getHtmlPreamble() {

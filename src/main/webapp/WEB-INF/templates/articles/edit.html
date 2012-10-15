@@ -17,40 +17,27 @@
 	</div>
 
 		<!-- ======================== -->
-    <div id="articleWrapper">
-        <p>
-            <span style="font-size: 160%;">
-                <span th:text="${article.title}"></span>&nbsp;
-<!--                 @if(session().containsKey("user")) {
-                    < span style="font-size: 70%;">< a href="@controllers.routes.EditArticle.edit(article.getId())">(edit)</a></span>
-                } -->
-            </span>
-        </p>
-        <p>
-            <div th:utext="${article.htmlContent}"></div>
-        </p>
-    </div>
+<div id="articleForm">
+    
+    <form action="#" th:object="${article}" th:action="@{/admin/save}" method="post"> 
+        <fieldset>
+            <input type="hidden" th:field="*{id}"/>
+            <input type="hidden" th:field="*{version}"/> 
+            <select th:field="*{section}">
+                <option th:each="section : ${allSections}" th:value="${section.id}"
+                    th:text="${section.name}">Section 1</option>
+            </select>
+            <br/>
+            <input type="text" th:field="*{title}" size="50"/><br/>
+            <textarea th:field="*{content}" rows="20" cols="50"/><br/>
+            <input type="date" th:field="*{publicationDate}"/><br/>
+            <input type="checkbox" th:field="*{published}"/><br/>
+            <br/>
+            <a href="/" th:href="@{/}" th:text="#{link.cancel}">Cancel</a>
+            <input type="submit" value="Save" th:attr="value=#{button.save}"/><br/>
+        </fieldset>
+    </form>
+</div>
 		<!-- ======================== -->
-
-<script type="text/javascript">
-    var disqus_developer = 1; // developer mode is on
-</script>
-
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'violiner'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
 </body>
 </html>

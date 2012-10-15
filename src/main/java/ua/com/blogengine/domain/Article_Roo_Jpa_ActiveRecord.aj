@@ -66,12 +66,4 @@ privileged aspect Article_Roo_Jpa_ActiveRecord {
         this.entityManager.clear();
     }
     
-    @Transactional
-    public Article Article.merge() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        Article merged = this.entityManager.merge(this);
-        this.entityManager.flush();
-        return merged;
-    }
-    
 }

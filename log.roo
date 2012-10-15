@@ -59,3 +59,22 @@ help
 version
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-12 12:50:22
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-12 13:26:25
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-10-12 14:39:23
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-12 14:39:43
+version
+backup
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-12 15:44:38
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-10-12 16:08:19
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-12 16:28:44
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-10-12 16:42:56
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-12 18:41:05
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-10-12 19:13:46
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-15 11:55:00
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-10-15 14:40:43
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-15 15:15:49
+// Spring Roo UNKNOWN VERSION log opened at 2012-10-15 16:58:03
+// Spring Roo UNKNOWN VERSION log opened at 2012-10-15 16:58:44
+// Spring Roo UNKNOWN VERSION log closed at 2012-10-15 17:05:15
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-15 17:17:09
+controller scaffold --class ~.web.ArticleRooControlles --entity ~.domain.Article 
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-15 18:25:40

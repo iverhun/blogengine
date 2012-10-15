@@ -85,12 +85,12 @@
 	</bean>
 
 	<bean class="org.thymeleaf.spring3.SpringTemplateEngine" id="templateEngine">
-		<property name="templateResolver" ref="templateResolver" />
-<!-- 		<property name="additionalDialects">
+		<property name="templateResolver" ref="templateResolver"/>
+ 		<property name="additionalDialects">
 			<set>
-				<bean class="org.thymeleaf.extras.springsecurity3.dialect.SpringSecurityDialect" />
+				<bean class="org.thymeleaf.extras.springsecurity3.dialect.SpringSecurityDialect"/>
 			</set>
-		</property> -->
+		</property>
 	</bean>
 
 	<bean class="org.thymeleaf.spring3.view.ThymeleafViewResolver" id="viewResolver">
