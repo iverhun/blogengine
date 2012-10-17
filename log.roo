@@ -78,3 +78,4 @@ backup
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-15 17:17:09
 controller scaffold --class ~.web.ArticleRooControlles --entity ~.domain.Article 
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-15 18:25:40
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-15 19:10:28

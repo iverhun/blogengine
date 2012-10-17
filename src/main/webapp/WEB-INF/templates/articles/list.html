@@ -15,23 +15,27 @@
             th:alt-title="#{title.application}" />
     </div>
 
+    <span sec:authorize="hasRole('ROLE_ADMIN')">
+       <a href="admin/edit.html" th:href="@{/admin/new}" th:text="#{link.new}">Write new article</a>
+    </span>
+
     <div class="seedstarterlist" th:unless="${#lists.isEmpty(allArticles)}">
         <div th:each="article : ${allArticles}">
             <div id="articleWrapper">
                 <p>
                     <span style="font-size: 160%;">
-                        <a th:text="${article.title}" href="view_article"
+                        <a th:text="${article.title}" href="admin/view.html"
                             th:href="@{'/' + ${article.section.urlName} + '/' +  ${article.id}} + '/' + ${article.urlTitle}">
                             Article Title </a>
                     </span>
                     <span sec:authorize="hasRole('ROLE_ADMIN')">
-                        <a href="/edit.html?articleId=1" th:href="@{/admin/edit(articleId=${article.id})}" th:text="#{link.edit}">(edit)</a>
+                        <a href="admin/edit?articleId=1" th:href="@{/admin/edit(articleId=${article.id})}" th:text="#{link.edit}">(edit)</a>
                     </span>
                 </p>
                 <p>
                     <div th:utext="${article.htmlPreamble}">
                     </div>&nbsp;<a 
-                        th:text="#{link.readmore}" href="view_article"
+                        th:text="#{link.readmore}" href="admin/view.html"
                         th:href="@{'/' + ${article.section.urlName} + '/' +  ${article.id}} + '/' + ${article.urlTitle}">
                         read more </a>
                 </p>

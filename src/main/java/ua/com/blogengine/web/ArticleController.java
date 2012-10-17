@@ -83,6 +83,14 @@ public class ArticleController {
         return "articles/edit";
     }
 
+
+    @RequestMapping(value = "/admin/new", produces = "text/html", method = RequestMethod.GET)
+    public String newArticle(Model model) {
+        addDateTimeFormatPatterns(model);
+        model.addAttribute("article", new Article());
+        return "articles/edit";
+    }
+
     @RequestMapping(value = "/admin/save", method = RequestMethod.POST)
     public String save(@ModelAttribute("article") Article article,
             BindingResult bindingResult,
