@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+    <definition templateType="thymeleaf" name="main" template="layout">
+<!--         <put-attribute name="content">
+            <definition template="basic_contentlayout :: content">
+                <put-attribute name="text" value="main :: text" />
+            </definition>
+        </put-attribute>
+ -->
+<!--        <put-attribute name="header" value="templates/layout" />
+        <put-attribute name="side" value="articles/layout :: side" />
+        <put-attribute name="footer" value="articles/layout :: footer" />
+ -->
+    </definition>
+    
+    <definition name="articles/list" extends="main">
+        <put-attribute name="content" value="articles/list :: articles_list"/>
+    </definition>
+
+    <definition name="articles/view" extends="main">
+        <put-attribute name="content" value="articles/view :: article_view"/>
+    </definition>
+
+    <definition name="articles/edit" extends="main">
+        <put-attribute name="content" value="articles/edit :: article_edit"/>
+    </definition>
+
+    <definition name="login" extends="main">
+        <put-attribute name="content" value="login :: login_form"></put-attribute>
+    </definition>
+
+</tiles-definitions>

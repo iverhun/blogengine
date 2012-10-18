@@ -1,43 +1,30 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org">
-
-<head>
-<title>Spring Thyme Seed Starter Manager</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" media="all"
-	href="../../css/stsm.css" th:href="@{/css/stsm.css}" />
-</head>
-
-<body>
-
-	<div>
-		<img src="../../images/stsmlogo.png" alt="STSM logo" title="STSM logo"
-			th:src="@{/images/stsmlogo.png}" th:alt-title="#{title.application}" />
-	</div>
-
-		<!-- ======================== -->
-<div id="articleForm">
-    
-    <form action="#" th:object="${article}" th:action="@{/admin/save}" method="post"> 
-        <fieldset>
-            <input type="hidden" th:field="*{id}"/>
-            <input type="hidden" th:field="*{version}"/> 
-            <select th:field="*{section}">
-                <option th:each="section : ${allSections}" th:value="${section.id}"
-                    th:text="${section.name}">Section 1</option>
-            </select>
-            <br/>
-            <input type="text" th:field="*{title}" size="50"/><br/>
-            <textarea th:field="*{content}" rows="20" cols="50"/><br/>
-            <input type="date" th:field="*{publicationDate}"/><br/>
-            <input type="checkbox" th:field="*{published}"/><br/>
-            <br/>
-            <a href="/" th:href="@{/}" th:text="#{link.cancel}">Cancel</a>
-            <input type="submit" value="Save" th:attr="value=#{button.save}"/><br/>
-        </fieldset>
-    </form>
-</div>
-		<!-- ======================== -->
-</body>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+    <head>
+    </head>
+    <body>
+        <div tiles:fragment="article_edit">
+            <div id="articleForm">
+                <form action="#" th:object="${article}" th:action="@{/admin/save}" method="post"> 
+                    <fieldset>
+                        <input type="hidden" th:field="*{id}"/>
+                        <input type="hidden" th:field="*{version}"/> 
+                        <select th:field="*{section}">
+                            <option th:each="section : ${allSections}" th:value="${section.id}"
+                                th:text="${section.name}">Section 1</option>
+                        </select>
+                        <br/>
+                        <input type="text" th:field="*{title}" size="50"/><br/>
+                        <textarea th:field="*{content}" rows="20" cols="50"></textarea><br/>
+                        <input type="date" th:field="*{publicationDate}"/><br/>
+                        <input type="checkbox" th:field="*{published}"/><br/>
+                        <br/>
+                        <a href="/" th:href="@{/}" th:text="#{link.cancel}">Cancel</a>
+                        <input type="submit" value="Save" th:attr="value=#{button.save}"/><br/>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </body>
 </html>

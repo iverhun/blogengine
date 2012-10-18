@@ -1,46 +1,33 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
-
-<head>
-<title>SamВидав</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" media="all" href="../../css/stsm.css" th:href="@{/css/stsm.css}" />
-</head>
-
-<body>
-
-    <div>
-        <img src="../../images/stsmlogo.png" alt="STSM logo" title="STSM logo" th:src="@{/images/stsmlogo.png}"
-            th:alt-title="#{title.application}" />
-    </div>
-
-    <span sec:authorize="hasRole('ROLE_ADMIN')">
-       <a href="admin/edit.html" th:href="@{/admin/new}" th:text="#{link.new}">Write new article</a>
-    </span>
-
-    <div class="seedstarterlist" th:unless="${#lists.isEmpty(allArticles)}">
-        <div th:each="article : ${allArticles}">
-            <div id="articleWrapper">
-                <p>
-                    <span style="font-size: 160%;">
-                        <a th:text="${article.title}" href="admin/view.html"
-                            th:href="@{'/' + ${article.section.urlName} + '/' +  ${article.id}} + '/' + ${article.urlTitle}">
-                            Article Title </a>
-                    </span>
-                    <span sec:authorize="hasRole('ROLE_ADMIN')">
-                        <a href="admin/edit?articleId=1" th:href="@{/admin/edit(articleId=${article.id})}" th:text="#{link.edit}">(edit)</a>
-                    </span>
-                </p>
-                <p>
-                    <div th:utext="${article.htmlPreamble}">
-                    </div>&nbsp;<a 
-                        th:text="#{link.readmore}" href="admin/view.html"
-                        th:href="@{'/' + ${article.section.urlName} + '/' +  ${article.id}} + '/' + ${article.urlTitle}">
-                        read more </a>
-                </p>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+    <head>
+    </head>
+    <body>
+        <div tiles:fragment="articles_list">
+            <div class="seedstarterlist" th:unless="${#lists.isEmpty(allArticles)}">
+                <div th:each="article : ${allArticles}">
+                    <div id="articleWrapper">
+                        <p>
+                            <h2>
+                                <a th:text="${article.title}" href="admin/view.html"
+                                    th:href="@{'/' + ${article.section.urlName} + '/' +  ${article.id}} + '/' + ${article.urlTitle}">
+                                    Article Title </a>
+                            </h2>
+                            <span sec:authorize="hasRole('ROLE_ADMIN')">
+                                <a href="admin/edit?articleId=1" th:href="@{/admin/edit(articleId=${article.id})}" th:text="#{link.edit}">(edit)</a>
+                            </span>
+                        </p>
+                        <p>
+                            <div th:utext="${article.htmlPreamble}">
+                            </div>&nbsp;<a 
+                                th:text="#{link.readmore}" href="admin/view.html"
+                                th:href="@{'/' + ${article.section.urlName} + '/' +  ${article.id}} + '/' + ${article.urlTitle}">
+                                read more </a>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>

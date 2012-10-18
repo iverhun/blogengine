@@ -1,0 +1,340 @@
+body {
+    background-color: #FFFFFF;
+    color: #222222;
+    font-family: 'Lucida Sans Unicode','Lucida Grande',Tahoma,sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.8em;
+    margin-left: auto;
+    margin-right: auto;
+
+    border: 0 none;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#canvasWrapper {
+    padding: 0 0;
+    width: 960px;
+    
+    margin-left: auto;
+    margin-right: auto;
+    
+    overflow: hidden;
+}
+
+#pageHeaderWrapper, #pageFooterWrapper {
+    margin-left: 0;
+    width: 960px;
+}
+
+#pageBodyWrapper {
+	 clear: both;
+}
+
+#pageHeader {
+    margin-bottom: 60px;
+}
+
+#siteTitleWrapper {
+    border-bottom: 1px solid #D8D8D8;
+    border-color: #D8D8D8;
+    border-top: 1px solid #D8D8D8;
+    padding-bottom: 60px;
+    padding-top: 60px;
+}
+
+#siteTitle, #siteSubtitle {
+    padding-left: 0;
+}
+
+#siteTitle, #pageFooterWrapper, #pageBodyWrapper {
+    clear: both;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+#siteTitle, #siteSubtitle {
+    padding-left: 0;
+}
+
+h1 a:visited, h1 a:link, h1 a:active {
+    color: #090909;
+    font-family: 'Josefin Sans','sans-serif';
+    font-size: 60px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1em;
+    text-transform: uppercase;
+}
+
+a:link, a:visited, a:active {
+    color: #8D8D8D;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.content-passthrough td.queryButtonCell {
+    white-space: nowrap;
+}
+
+#articleWrapper {
+	border-bottom: 1px solid #D8D8D8;
+	margin-bottom: 35px;
+}
+
+/****/
+
+#sidebar1 .content-passthrough .search-form-pt .queryButton, #sidebar2 .content-passthrough .search-form-pt .queryButton {
+    height: 2.5em;
+    padding: 0 !important;
+    width: 30px;
+}
+
+.content-passthrough .search-form-pt .queryButton {
+}
+
+.content-passthrough input.queryButton {
+    border: 0 none;
+    height: 2.5em;
+    width: auto;
+}
+
+.content-passthrough input.queryField, .content-passthrough input.queryButton {
+}
+
+input.button, input.button[disabled] {
+    -moz-transition-property: background-color;
+    border: 0 none;
+    border-radius: 3px 3px 3px 3px;
+    width: auto;
+}
+
+input.button, input.button[disabled] {
+    background-color: #000000;
+    color: #FFFFFF;
+    padding: 10px 12px;
+}
+
+input.button, input.button[disabled] {
+    font-size: 12px;
+    padding: 2px 5px 3px;
+}
+
+.content-passthrough table.search-form-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.content-passthrough tr.search-form-row {
+    vertical-align: middle;
+}
+
+.content-passthrough td.queryButtonCell {
+    white-space: nowrap;
+    width: 1%;
+}
+
+td {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+}
+
+/*****/
+#sidebar1 .content-passthrough .search-form-pt .queryField, #sidebar2 .content-passthrough .search-form-pt .queryField {
+    height: 2.2em;
+}
+
+#sidebar1 .content-passthrough .search-form-pt .queryField {
+    width: 180px;
+}
+
+.content-passthrough .search-form-pt .queryField {
+    font-size: 10px;
+    padding: 3px;
+}
+
+.content-passthrough input.queryField {
+    height: 2.5em;
+    width: 100% !important;
+}
+
+.content-passthrough input.queryField, .content-passthrough input.queryButton {
+}
+
+input.text, textarea {
+    border: 1px solid #D8D8D8;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.5em;
+    padding: 5px;
+}
+
+input.text {
+    width: 300px;
+}
+
+input.text, input.text-fixed, textarea, select {
+    font: 8pt Arial,Tahoma,Verdana,Helvetica,sans-serif;
+}
+
+/****/
+/*****/
+
+.content-passthrough table.search-form-table {
+    border-collapse: collapse;
+}
+
+.content-passthrough .search-form-pt .queryButtonWrapper {
+    display: block;
+    float: left;
+    padding-left: 10px;
+}
+
+a {
+}
+
+.h1subtitle {
+    color: #8E8E8E;
+}
+
+#navigationBottom {
+    display: block;
+}
+
+#navigationBottom .horizontalNavigationBar {
+    border-bottom: 1px solid #D8D8D8;
+    border-color: #D8D8D8;
+}
+
+.horizontalNavigationBar {
+    width: 960px;
+}
+
+#sidebar1Wrapper {
+    display: block;
+    float: right;
+    padding: 0;
+    width: 230px;
+}
+
+.verticalNavigationBar .section {
+    font-size: 0.85em;
+    margin-bottom: 30px;
+}
+
+.verticalNavigationBar .section .caption {
+    border-bottom: 1px solid #D8D8D8;
+    border-color: #D8D8D8;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+
+.widget-wrapper {
+    margin-top: 0;
+}
+
+p {
+    margin-bottom: 1em;
+    margin-top: 0;
+}
+
+#contentWrapper {
+    float: left;
+    width: 700px;
+    margin-bottom: 30px;
+}
+
+#content p a {
+    color: #000000;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#content p a:hover {
+    text-decoration: none;
+}
+
+#content .search-form .queryField {
+    height: 1.8em;
+    width: 590px;
+}
+
+#content .search-form-inline .queryField {
+    height: 2.2em;
+    width: 640px;
+}
+
+#canvasWrapper, #content, #sidebar1, #sidebar2 {
+    overflow: hidden;
+}
+
+#pageFooterWrapper {
+    border-color: #E1E1E1;
+    border-top: 1px solid #E1E1E1;
+    padding-bottom: 40px;
+    padding-top: 15px;
+}
+
+#pageFooter {
+    color: #737373;
+    font-size: 0.85em;
+}
+.horizontalNavigationBar, #pageFooter {
+    padding-left: 0;
+    padding-right: 0;
+    width: 960px;
+}
+
+.horizontalNavigationBar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: square;
+    margin: 1em 0;
+    padding: 0 0 0 2em;
+}
+
+.horizontalNavigationBar .module.active-module a {
+    background-color: #F2F2F2;
+    color: #000000;
+    font-weight: bold;
+}
+
+.horizontalNavigationBar .module a {
+    padding: 5px 15px;
+}
+
+.horizontalNavigationBar ul li {
+    float: left;
+}
+
+.horizontalNavigationBar ul li a {
+    display: block;
+}
+
+.horizontalNavigationBar .content-navigation {
+    float: left;
+}
+
+#bodyClearer {
+    display: none;
+}
+
+.clearer {
+    clear: both;
+    height: 0;
+    line-height: 0;
+}
