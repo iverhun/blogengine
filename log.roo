@@ -81,3 +81,4 @@ controller scaffold --class ~.web.ArticleRooControlles --entity ~.domain.Article
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-15 19:10:28
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-17 16:19:45
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-10-17 17:51:06
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-19 13:03:21
