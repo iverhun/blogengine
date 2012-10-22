@@ -108,8 +108,15 @@
         <property name="viewClass" value="org.thymeleaf.extras.tiles2.spring.web.view.ThymeleafTilesView" />
         <property name="templateEngine" ref="templateEngine" />
         <property name="characterEncoding" value="UTF8" />
+        <property name="order" value="10"/>
     </bean>
  
+    <!-- Map returned view name "rssViewer" to bean id "rssViewer" -->
+    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+        <property name="order" value="0"/>
+    </bean>
+    <bean id="rssViewer" class="ua.com.blogengine.web.view.RssFeedView" />
+
 <!--  	<bean id="viewResolver" class="org.thymeleaf.spring3.view.ThymeleafViewResolver">
 		<property name="templateEngine" ref="templateEngine"/>
 		<property name="characterEncoding" value="UTF8"/>
