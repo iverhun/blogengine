@@ -2,6 +2,25 @@
 
 <html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
     <head>
+        <meta charset="utf-8"/> 
+
+        <title>SamВидав</title>
+
+        <link rel="stylesheet" media="screen" href="../../../resources/css/main.css" th:href="@{/resources/css/main.css}"/>
+        <link rel="shortcut icon" type="image/png" href="../../../resources/images/favicon.png" th:href="@{/resources/images/favicon.png}"/>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Josefin+Sans:400"/>
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="feed/rss" th:href="@{/feed/rss}"/>
+        <link rel="alternate" type="application/rss+atom" title="atom" href="feed/atom" th:href="@{/feed/atom}"/>
+
+        <link href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+        <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js" ></script>
+        <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shAutoloader.js" ></script>
+        <script src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shBrushJava.js" ></script>
+        <script >
+             SyntaxHighlighter.all()
+        </script>
+
+        <!-- <script src="javascripts/jquery-1.7.1.min.js" th:src="@{/javascripts/jquery-1.7.1.min.js}"></script> -->
     </head>
     <body>
         <div tiles:fragment="articles_list">
@@ -10,20 +29,20 @@
                     <div id="articleWrapper">
                         <p>
                             <h2>
-                                <a th:text="${article.title}" href="admin/view.html"
+                                <a th:text="${article.title}" href="view.html"
                                     th:href="@{'/' + ${article.section.urlName} + '/' +  ${article.id}} + '/' + ${article.urlTitle}">
-                                    Article Title </a>
+                                    Article Title </a>  
+                                <span sec:authorize="hasRole('ROLE_ADMIN')" class="edit_article" >
+                                    <a href="edit.html?articleId=1" th:href="@{/admin/edit(articleId=${article.id})}" th:text="#{link.edit}">(edit)</a>
+                                </span>
                             </h2>
-                            <span sec:authorize="hasRole('ROLE_ADMIN')">
-                                <a href="admin/edit?articleId=1" th:href="@{/admin/edit(articleId=${article.id})}" th:text="#{link.edit}">(edit)</a>
-                            </span>
+                            <div class="pulication_date">(Published at 23.10.2012)</div>
                         </p>
                         <p>
                             <div th:utext="${article.htmlPreamble}">
                             </div>&nbsp;<a 
-                                th:text="#{link.readmore}" href="admin/view.html"
-                                th:href="@{'/' + ${article.section.urlName} + '/' +  ${article.id}} + '/' + ${article.urlTitle}">
-                                read more </a>
+                                th:text="#{link.readmore}" href="view.html"
+                                th:href="@{'/' + ${article.section.urlName} + '/' +  ${article.id}} + '/' + ${article.urlTitle}">read more</a>
                         </p>
                     </div>
                 </div>

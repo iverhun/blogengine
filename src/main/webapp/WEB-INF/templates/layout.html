@@ -6,8 +6,8 @@
 
         <title>SamВидав</title>
 
-        <link rel="stylesheet" media="screen" href="/resources/css/main.css" th:href="@{/resources/css/main.css}"/>
-        <link rel="shortcut icon" type="image/png" href="/resources/images/favicon.png" th:href="@{/resources/images/favicon.png}"/>
+        <link rel="stylesheet" media="screen" href="../../resources/css/main.css" th:href="@{/resources/css/main.css}"/>
+        <link rel="shortcut icon" type="image/png" href="../../resources/images/favicon.png" th:href="@{/resources/images/favicon.png}"/>
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Josefin+Sans:400"/>
         <link rel="alternate" type="application/rss+xml" title="RSS" href="feed/rss" th:href="@{/feed/rss}"/>
         <link rel="alternate" type="application/rss+atom" title="atom" href="feed/atom" th:href="@{/feed/atom}"/>
@@ -32,7 +32,7 @@
                             <div id="bannerArea">
                                 <div id="siteTitleWrapper">
                                     <h1 id="siteTitle">
-                                        <a href="/" th:href="@{/}">SamВидав</a>
+                                        <a href="" th:href="@{/}">SamВидав</a>
                                     </h1>
                                     <div id="siteSubtitle" class="h1 subtitle">Жодної цензури</div>
                                 </div>
@@ -43,18 +43,18 @@
                                 class="horizontalNavigationBar">
                                 <ul class="content-navigation">
                                     <li class="module active-module" th:class="${menu == 'menu_home'} ? 'module active-module': 'module'">
-                                        <div><a href="/" th:href="@{/}"><span>Home</span></a></div>
+                                        <div><a href="" th:href="@{/}"><span>Home</span></a></div>
                                     </li>
                                     
                                     <li th:each="section : ${allSections}" th:class="${menu == 'menu_' + section.urlName} ? 'module active-module': 'module'" class="module" >
-                                        <div><a href="/social/" th:href="@{'/' + ${section.urlName}}"><span th:text="${section.name}">SectionName</span></a></div>
+                                        <div><a href="" th:href="@{'/' + ${section.urlName}}"><span th:text="${section.name}">SectionName</span></a></div>
                                     </li>
                                     
                                     <li class="module" th:class="${menu == 'menu_about'} ? 'module active-module': 'module'">
-                                        <div><a href="/about/" th:href="@{/about}"><span>About</span></a></div>
+                                        <div><a href="about.html" th:href="@{/about}"><span>About</span></a></div>
                                     </li>
                                     <li class="module" sec:authorize="hasRole('ROLE_ADMIN')" th:class="${menu == 'menu_newarticle'} ? 'module active-module': 'module'">
-                                        <div><a href="/admin/new" th:href="@{/admin/new}"><span>New Article</span></a></div>
+                                        <div><a href="articles/edit.html" th:href="@{/admin/new}"><span>New Article</span></a></div>
                                     </li>
                                 </ul>
                                 <br class="clearer"/>
@@ -77,8 +77,8 @@
                                 <div class="caption">Потоки</div>
                                 <div class="content-passthrough">
                                     <div class="widget-wrapper widget-type-page">
-                                    	<a href="feed/rss" th:href="@{/feed/rss}">
-                                    		<img src="/resources/images/rss.png" th:src="@{/resources/images/rss.png}"/>
+                                    	<a href="" th:href="@{/feed/rss}">
+                                    		<img src="../../resources/images/rss.png" th:src="@{/resources/images/rss.png}"/>
                                    		</a>
                                    	</div>
                                 </div>
