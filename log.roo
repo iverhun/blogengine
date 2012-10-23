@@ -84,3 +84,7 @@ controller scaffold --class ~.web.ArticleRooControlles --entity ~.domain.Article
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-19 13:03:21
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-10-19 15:21:24
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-22 14:35:28
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-10-22 14:56:34
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-23 11:54:30
+finder list --class ~.domain.Article 
+finder add --finderName findArticlesBySection 

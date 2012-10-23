@@ -42,13 +42,18 @@
                             <div id="navigationBottom-sectionContent7289596"
                                 class="horizontalNavigationBar">
                                 <ul class="content-navigation">
-                                    <li class="module active-module">
+                                    <li class="module active-module" th:class="${menu == 'menu_home'} ? 'module active-module': 'module'">
                                         <div><a href="/" th:href="@{/}"><span>Home</span></a></div>
                                     </li>
-                                    <li class="module">
+                                    
+                                    <li th:each="section : ${allSections}" th:class="${menu == 'menu_' + section.urlName} ? 'module active-module': 'module'" class="module" >
+                                        <div><a href="/social/" th:href="@{'/' + ${section.urlName}}"><span th:text="${section.name}">SectionName</span></a></div>
+                                    </li>
+                                    
+                                    <li class="module" th:class="${menu == 'menu_about'} ? 'module active-module': 'module'">
                                         <div><a href="/about/" th:href="@{/about}"><span>About</span></a></div>
                                     </li>
-                                    <li class="module" sec:authorize="hasRole('ROLE_ADMIN')" >
+                                    <li class="module" sec:authorize="hasRole('ROLE_ADMIN')" th:class="${menu == 'menu_newarticle'} ? 'module active-module': 'module'">
                                         <div><a href="/admin/new" th:href="@{/admin/new}"><span>New Article</span></a></div>
                                     </li>
                                 </ul>

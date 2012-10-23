@@ -5,8 +5,8 @@
     </head>
     <body>
         <div tiles:fragment="articles_list">
-            <div class="seedstarterlist" th:unless="${#lists.isEmpty(allArticles)}">
-                <div th:each="article : ${allArticles}">
+            <div class="seedstarterlist" th:unless="${#lists.isEmpty(articles)}">
+                <div th:each="article : ${articles}">
                     <div id="articleWrapper">
                         <p>
                             <h2>

@@ -15,17 +15,13 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import ua.com.blogengine.domain.Article;
 import ua.com.blogengine.domain.Section;
+import ua.com.blogengine.util.UrlUtils;
 
 @RequestMapping("/")
 @Controller
 @RooWebScaffold(path = "articles", formBackingObject = Article.class, delete = false)
 @SessionAttributes({"article"})
 public class ArticleController {
-
-    @ModelAttribute("allArticles")
-    public List<Article> populateArticles() {
-        return Article.findAllArticles();
-    }
 
     @ModelAttribute("allSections")
     public List<Section> populateSections() {
@@ -44,11 +40,25 @@ public class ArticleController {
         } else {
             model.addAttribute("articles", Article.findAllArticles());
         }
+        model.addAttribute("menu", "menu_home");
         
         addDateTimeFormatPatterns(model);
         return "articles/list";
     }
 
+    @RequestMapping(value="/{section}", produces = "text/html", method = RequestMethod.GET)
+    public String list(@PathVariable("section") String section, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size,
+            Model model) {
+        
+        List<Article> articles = Article.findArticlesBySection(section, null, null);
+        model.addAttribute("articles", articles);
+        model.addAttribute("menu", "menu_" + section);
+        
+        addDateTimeFormatPatterns(model);
+        return "articles/list";
+    }
+
+    
     @RequestMapping(value = "/{section}/{id}/{title}", produces = "text/html",  method = RequestMethod.GET)
     public String show(@PathVariable String section,
             @PathVariable("id") Long id, 
@@ -58,25 +68,29 @@ public class ArticleController {
         Article article = Article.findArticle(id);
         if (!article.getUrlTitle().equals(title + Article.PAGE_TITLE_SUFFIX) || !article.getSection().getUrlName().equals(section)) {
             model.asMap().clear();
-            return "redirect:" + getViewArticleUrl(article);
+            return "redirect:" + UrlUtils.getArticleUrl(article);
         } else {
             model.addAttribute("article", Article.findArticle(id));
+            model.addAttribute("menu", "menu_" + section);
             return "articles/view";
         }
     }
 
-    @RequestMapping(value = "/{id}", produces = "text/html",  method = RequestMethod.GET)
-    public String show(@PathVariable("id") Long id, 
+    @RequestMapping(value = "/{section}/{id}", produces = "text/html",  method = RequestMethod.GET)
+    public String show(@PathVariable("section") String section,
+            @PathVariable("id") Long id, 
             Model model) {
         Article article = Article.findArticle(id);
-        return "redirect:" + getViewArticleUrl(article);
+        return "redirect:" + UrlUtils.getArticleUrl(article);
     }
 
     @RequestMapping(value = "/admin/edit", produces = "text/html", method = RequestMethod.GET)
     public String edit(@RequestParam(value="articleId") Long id, 
             Model model) {
         addDateTimeFormatPatterns(model);
-        model.addAttribute("article", Article.findArticle(id));
+        Article article = Article.findArticle(id);
+        model.addAttribute("article", article);
+        model.addAttribute("menu", "menu_" + article.getSection().getUrlName());
         return "articles/edit";
     }
 
@@ -85,6 +99,7 @@ public class ArticleController {
     public String newArticle(Model model) {
         addDateTimeFormatPatterns(model);
         model.addAttribute("article", new Article());
+        model.addAttribute("menu", "menu_newarticle");
         return "articles/edit";
     }
 
@@ -93,10 +108,7 @@ public class ArticleController {
             BindingResult bindingResult,
             Model model) {
         Article savedArticle = article.saveOrUpdate();
-        return "redirect:" + getViewArticleUrl(savedArticle);
+        return "redirect:" + UrlUtils.getArticleUrl(savedArticle);
     }
 
-    private String getViewArticleUrl(Article article) {
-        return "/" + article.getSection().getUrlName() + "/" + article.getId() + "/" + article.getUrlTitle();
-    }
 }
