@@ -2,6 +2,7 @@ package ua.com.blogengine.web;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import ua.com.blogengine.domain.Article;
@@ -109,6 +111,12 @@ public class ArticleController {
             Model model) {
         Article savedArticle = article.saveOrUpdate();
         return "redirect:" + UrlUtils.getArticleUrl(savedArticle);
+    }
+
+    @RequestMapping(value = "/admin/index/all", method = RequestMethod.GET)
+    @ResponseStatus(value=HttpStatus.NO_CONTENT)
+    public void indexAllArticles(Model model) {
+        Article.indexArticles(Article.findAllArticles());
     }
 
 }
