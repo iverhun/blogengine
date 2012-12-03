@@ -93,3 +93,4 @@ finder add --finderName findArticlesBySection
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-23 17:33:59
 solr setup
 solr add --class ~.domain.Article 
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-10-23 18:14:55

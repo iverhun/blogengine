@@ -56,6 +56,9 @@
                                     <li class="module" sec:authorize="hasRole('ROLE_ADMIN')" th:class="${menu == 'menu_newarticle'} ? 'module active-module': 'module'">
                                         <div><a href="articles/edit.html" th:href="@{/admin/new}"><span>New Article</span></a></div>
                                     </li>
+                                    <li class="module" sec:authorize="hasRole('ROLE_ADMIN')">
+                                        <div><a href="" th:href="@{/admin/logout.html}"><span>Logout</span></a></div>
+                                    </li>
                                 </ul>
                                 <br class="clearer"/>
                             </div>
@@ -66,7 +69,7 @@
                 <div id="sidebar1Wrapper" class="verticalNavigationBarWrapper">
                     <div id="sidebar1" class="verticalNavigationBar">
                         <div class="sectionWrapper ">
-                            <div class="section">
+                            <div class="section" th:remove="all">
                                 <div class="caption">Пошук</div>
                                 <div class="content-passthrough">
 
